@@ -985,12 +985,12 @@ void resolve_limb_nodes(const ofbx::IScene* scene) {
 	for (int i = 0; const ofbx::Object * child = root->resolveObjectLink(i); i++) {
 		if (child->getType() == ofbx::Object::Type::ANIMATION_CURVE_NODE) {
 			const ofbx::AnimationCurveNode* node = (ofbx::AnimationCurveNode*)child;
-			const ofbx::AnimationCurve* curveX = node->getCurve(0);
-			if (curveX == nullptr) {
+			const ofbx::AnimationCurve* curveY = node->getCurve(1);
+			if (curveY == nullptr) {
 				++i;
 				continue;
 			}
-			key_count_max = curveX->getKeyCount();
+			key_count_max = curveY->getKeyCount();
 
 		}
 	}
