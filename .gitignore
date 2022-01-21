@@ -34,4 +34,4 @@
 # Directory
 build/
 data/
-!data/repo_test_file/
+!/data/repo_test_file/
