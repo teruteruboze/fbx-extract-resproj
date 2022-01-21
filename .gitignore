@@ -36,3 +36,4 @@ build/
 /data/*
 !/data/repo_test_file/
 !/data/repo_test_file/bigvegas_Walking.fbx
+/data/repo_test_file/*
