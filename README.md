@@ -24,7 +24,7 @@ To build the project, run `cmake` and `make`, and then run with the fbx file as 
 > cd build
 > cmake ..
 > make
-> ./fbx-extract ../data/bigvegas_Walking.fbx
+> ./fbx-extract ../data/repo_test_file/bigvegas_Walking.fbx
 ```
 
 
