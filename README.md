@@ -41,6 +41,14 @@ Modified model: add Key Frames to X and Y axis of "moving" -> check the added ke
 ```
 > ./fbx-extract ../data/bone_ok/bone.fbx # 実行可能：キーフレームをX・Z軸にも情報を追加
 ```
+* Example of good keyframes (keyframes are applied all the X/Y/Z axis)
+<img width="734" alt="image" src="https://user-images.githubusercontent.com/63697745/150630975-81a4eff2-60aa-4257-b4ea-8a4f8740e50c.png">
+* Example of bad keyframe (keyframe is applied to the Y axis)
+<img width="733" alt="image" src="https://user-images.githubusercontent.com/63697745/150631061-0bbcd88c-2725-468a-8997-fef7793760a6.png">
+* To interpolate keyframes, excute "bake animation" from
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/63697745/150631186-a4101d69-f922-493a-bed0-4c605cd6222b.png">
+
+
 
 ## Output files
 
