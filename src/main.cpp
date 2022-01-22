@@ -707,9 +707,19 @@ bool saveAnim(const ofbx::IScene *scene)
 				const ofbx::AnimationCurve* curveX = node->getCurve(0);
 				const ofbx::AnimationCurve* curveY = node->getCurve(1);
 				const ofbx::AnimationCurve* curveZ = node->getCurve(2);
-				if (curveX == nullptr) {
+				if (curveX == nullptr && curveY == nullptr && curveZ == nullptr) {
 					++i;
 					continue;
+				}
+				if (!(curveX != nullptr && curveY != nullptr && curveZ != nullptr)) {
+					try {
+						throw std::runtime_error("Error: The number of Key Frames is different between X, Y, and Z. Please modify your FBX model.\n\
+						\rエラー: アニメーションのキーフレーム数がXYZ軸でそろっていませんので, 合わせてください.");
+					}
+					catch (const std::runtime_error& e) {
+						std::cout << e.what() << std::endl;
+						exit(1);
+					}
 				}
 				key_count = curveX->getKeyCount();
 				assert(key_count == curveY->getKeyCount());
