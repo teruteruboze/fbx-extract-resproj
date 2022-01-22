@@ -714,7 +714,7 @@ bool saveAnim(const ofbx::IScene *scene)
 				if (!(curveX != nullptr && curveY != nullptr && curveZ != nullptr)) {
 					try {
 						throw std::runtime_error("Error: The number of Key Frames is different between X, Y, and Z. Please modify your FBX model.\n\
-						\rエラー: アニメーションのキーフレーム数がXYZ軸でそろっていませんので, アニメーションのベイク処理などで，キーフレームを全ての軸で合わせてください.");
+						\rエラー: アニメーションのキーフレーム数がXYZ軸でそろっていませんので, アニメーションのベイク処理などを用いて，キーフレーム数を全ての軸で合わせてください.");
 					}
 					catch (const std::runtime_error& e) {
 						std::cout << e.what() << std::endl;
