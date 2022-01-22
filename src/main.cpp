@@ -707,9 +707,19 @@ bool saveAnim(const ofbx::IScene *scene)
 				const ofbx::AnimationCurve* curveX = node->getCurve(0);
 				const ofbx::AnimationCurve* curveY = node->getCurve(1);
 				const ofbx::AnimationCurve* curveZ = node->getCurve(2);
-				if (curveX == nullptr) {
+				if (curveX == nullptr && curveY == nullptr && curveZ == nullptr) {
 					++i;
 					continue;
+				}
+				if (!(curveX != nullptr && curveY != nullptr && curveZ != nullptr)) {
+					try {
+						throw std::runtime_error("Error: The number of Key Frames is different between X, Y, and Z. Please modify your FBX model.\n\
+						\rエラー: アニメーションのキーフレーム数がXYZ軸でそろっていませんので, 合わせてください.");
+					}
+					catch (const std::runtime_error& e) {
+						std::cout << e.what() << std::endl;
+						exit(1);
+					}
 				}
 				key_count = curveX->getKeyCount();
 				assert(key_count == curveY->getKeyCount());
@@ -982,6 +992,8 @@ void resolve_limb_nodes(const ofbx::IScene* scene) {
 	}
 
 	// Ger ket count
+	int key_count_x, key_count_y, key_count_z;
+	// CurveX
 	for (int i = 0; const ofbx::Object * child = root->resolveObjectLink(i); i++) {
 		if (child->getType() == ofbx::Object::Type::ANIMATION_CURVE_NODE) {
 			const ofbx::AnimationCurveNode* node = (ofbx::AnimationCurveNode*)child;
@@ -990,10 +1002,38 @@ void resolve_limb_nodes(const ofbx::IScene* scene) {
 				++i;
 				continue;
 			}
-			key_count_max = curveX->getKeyCount();
+			key_count_x = curveX->getKeyCount();
 
 		}
 	}
+	// CurveY
+	for (int i = 0; const ofbx::Object * child = root->resolveObjectLink(i); i++) {
+		if (child->getType() == ofbx::Object::Type::ANIMATION_CURVE_NODE) {
+			const ofbx::AnimationCurveNode* node = (ofbx::AnimationCurveNode*)child;
+			const ofbx::AnimationCurve* curveY = node->getCurve(1);
+			if (curveY == nullptr) {
+				++i;
+				continue;
+			}
+			key_count_y = curveY->getKeyCount();
+
+		}
+	}
+	// CurveZ
+	for (int i = 0; const ofbx::Object * child = root->resolveObjectLink(i); i++) {
+		if (child->getType() == ofbx::Object::Type::ANIMATION_CURVE_NODE) {
+			const ofbx::AnimationCurveNode* node = (ofbx::AnimationCurveNode*)child;
+			const ofbx::AnimationCurve* curveZ = node->getCurve(2);
+			if (curveZ == nullptr) {
+				++i;
+				continue;
+			}
+			key_count_z = curveZ->getKeyCount();
+
+		}
+	}
+	// Calculate maximum counted-node
+	key_count_max = std::max({key_count_x, key_count_y, key_count_z});
 
 	// Traverse hierarchy
 	traverseLimbs(root, limbVec, limbMap, limbParents);
