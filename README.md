@@ -48,7 +48,7 @@ Modified model: add Key Frames to X and Y axis of "moving" -> check the added ke
 <img width="734" alt="image" src="https://user-images.githubusercontent.com/63697745/150630975-81a4eff2-60aa-4257-b4ea-8a4f8740e50c.png">
 * Example of bad keyframe (keyframe is applied to the Y axis)
 <img width="733" alt="image" src="https://user-images.githubusercontent.com/63697745/150631061-0bbcd88c-2725-468a-8997-fef7793760a6.png">
-* To interpolate keyframes, excute "bake animation" from
+* To interpolate keyframes, excute "bake animation" from (you may remove some unnecessary keyframes (i.e., rotate) after the interpolation)
 <img width="720" alt="image" src="https://user-images.githubusercontent.com/63697745/150631186-a4101d69-f922-493a-bed0-4c605cd6222b.png">
 
 
