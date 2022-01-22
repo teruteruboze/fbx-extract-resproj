@@ -27,6 +27,20 @@ To build the project, run `cmake` and `make`, and then run with the fbx file as 
 > ./fbx-extract ../data/repo_test_file/bigvegas_Walking.fbx
 ```
 
+## Example File
+### Example model distributed by sueda (original author)
+```
+> ./fbx-extract ../data/repo_test_file/bigvegas_Walking.fbx # 実行可能
+```
+### Failure example model 
+```
+> ./fbx-extract ../data/bone_fail/bone.fbx # 実行不可：アニメーション（≒キーフレーム）がY軸のみに割り当てられており、X・Z軸には情報がないため、アニメーションの情報が取れない。
+```
+### Successfully working model
+Modified model: add Key Frames to X and Y axis of "moving" -> check the added keyframes with Graph Editor in Maya.
+```
+> ./fbx-extract ../data/bone_ok/bone.fbx # 実行可能
+```
 
 ## Output files
 
