@@ -39,7 +39,7 @@ To build the project, run `cmake` and `make`, and then run with the fbx file as 
 ### Successfully working model
 Modified model: add Key Frames to X and Y axis of "moving" -> check the added keyframes with Graph Editor in Maya.
 ```
-> ./fbx-extract ../data/bone_ok/bone.fbx # 実行可能
+> ./fbx-extract ../data/bone_ok/bone.fbx # 実行可能：キーフレームをX・Z軸にも情報を追加
 ```
 
 ## Output files
