@@ -44,7 +44,7 @@ Modified model: add Key Frames to X and Y axis of "moving" -> check the added ke
 
 
 ## Note for keyframes
-* Example of good keyframes (keyframes are applied all the X/Y/Z axis)
+* Example of good keyframes (keyframes are applied all the X/Y/Z axes)
 <img width="734" alt="image" src="https://user-images.githubusercontent.com/63697745/150630975-81a4eff2-60aa-4257-b4ea-8a4f8740e50c.png">
 * Example of bad keyframe (keyframe is applied to the Y axis)
 <img width="733" alt="image" src="https://user-images.githubusercontent.com/63697745/150631061-0bbcd88c-2725-468a-8997-fef7793760a6.png">
